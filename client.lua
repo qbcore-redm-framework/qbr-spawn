@@ -235,6 +235,16 @@ RegisterNetEvent('qbr-houses:client:setHouseConfig', function(houseConfig)
     Config.Houses = houseConfig
 end)
 
+
+
+RegisterNetEvent('qbr-spawn:setFirstTime', function()
+    SendNUIMessage({
+        action = "firstTime",
+    })
+    print('setting to first time spawn')
+end)
+
+
 RegisterNetEvent('qbr-spawn:client:setupSpawnUI', function(cData, new)
     if QB.EnableApartments then
         exports['qbr-core']:TriggerCallback('apartments:GetOwnedApartment', function(result)
