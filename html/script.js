@@ -1,3 +1,6 @@
+
+var firsttime = false
+
 $(document).ready(function() {
 
     $(".container").hide();
@@ -15,6 +18,10 @@ $(document).ready(function() {
 
         if (data.action == "setupLocations") {
             setupLocations(data.locations, data.houses)
+        }
+
+        if (data.action == "firstTime") {
+            firsttime = true
         }
 
         if (data.action == "setupAppartements") {
@@ -60,6 +67,7 @@ $(document).on('click', '#submit-spawn', function(evt) {
             spawnloc: location,
             typeLoc: spawnType
         }));
+        firsttime = false
     } else {
         $.post('https://qbr-spawn/chooseAppa', JSON.stringify({
             appType: location,
@@ -67,13 +75,17 @@ $(document).on('click', '#submit-spawn', function(evt) {
     }
 });
 
+
 function setupLocations(locations, myHouses) {
     var parent = $('.spawn-locations')
     $(parent).html("");
     $(parent).append('<div class="loclabel" id="location" data-location="null" data-type="lab" data-label="Where would you like to start?"><p><span id="null">Where would you like to start?</span></p></div>')
 
     setTimeout(function() {
-        $(parent).append('<div class="location" id="location" data-location="current" data-type="current" data-label="Last Location"><p><span id="current-location">Last Location</span></p></div>');
+        if (!firsttime)
+        {
+            $(parent).append('<div class="location" id="location" data-location="current" data-type="current" data-label="Last Location"><p><span id="current-location">Last Location</span></p></div>');
+        }
 
         $.each(locations, function(index, location) {
             $(parent).append('<div class="location" id="location" data-location="' + location.location + '" data-type="normal" data-label="' + location.label + '"><p><span id="' + location.location + '">' + location.label + '</span></p></div>')
