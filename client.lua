@@ -287,6 +287,12 @@ RegisterNetEvent('qbr-spawn:client:setupSpawns', function(cData, new, apps)
             action = "setupAppartements",
             locations = apps,
         })
+    elseif new then 
+        SendNUIMessage({
+            action = "setupLocations",
+            locations = QB.FirstSpawns ,
+            new = true,
+        })
     else
         SendNUIMessage({
             action = "setupLocations",
