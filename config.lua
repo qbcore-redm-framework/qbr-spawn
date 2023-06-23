@@ -30,35 +30,84 @@ QB.FirstSpawns = {
 }
 
 QB.Spawns = {
-    ["emerald"] = {
+    ["annesburg"] = {
         coords = {
-            x = 1417.818,
-            y = 268.0298,
-            z = 89.61942,
-            h = 144.5
+            x = 2929.1416,
+            y = 1290.5629,
+            z = 44.6673,
+            h = 68.4290
         },
-        location = "emerald",
-        label = "Emerald Ranch Fence",
+        location = "annesburg",
+        label = "Annesburg",
     },
-
-    ["rhodesst"] = {
+    ["rhodes"] = {
         coords = {
-            x = 1359.575,
-            y = -1301.451,
-            z = 77.76775,
-            h = 3.5
+            x = 1236.7697,
+            y = -1281.6980,
+            z = 75.9116,
+            h = 296.8683
         },
-        location = "rhodesst",
-        label = "Rhodes Sheriff Station",
+        location = "rhodes",
+        label = "Rhodes",
     },
-    ["default"] = {
+    ["saintdenis"] = {
         coords = {
-            x = 2556.46,
-            y = -1159.73,
-            z = 53.7,
-            h = 137.05
+            x = 2570.9810,
+            y = -1211.5509,
+            z = 53.9253,
+            h = 0.4514
         },
-        location = "default",
-        label = "Default Spawn"
+        location = "saintdenis",
+        label = "Saint Denis"
+    },
+    ["valentine"] = {
+        coords = {
+            x = -376.4507,
+            y = 726.8616,
+            z =  116.4170,
+            h = 319.1562
+        }, 
+        location = "valentine",
+        label = "Valentine"
+    },
+    ["blackwater"] = {
+        coords = {
+            x = -805.1362,
+            y = -1313.6912,
+            z = 43.6430,
+            h = 266.2657
+        },
+        location = "blackwater",
+        label = "Black Water"
+    },
+    ["strawberry"] = {
+        coords = {
+            x = -1801.3273,
+            y = -358.3829,
+            z = 163.8472,
+            h = 286.8674
+        },
+        location = "strawberry",
+        label = "Strawberry"
+    },
+    ["tumbleweed"] = {
+        coords = {
+            x = -5504.1934,
+            y = -2948.8291,
+            z = -1.8542,
+            h = 257.0909
+        },
+        location = "tumbleweed",
+        label = "Tumbleweed"
+    },
+    ["armadillo"] = {
+        coords = {
+            x = -3673.4417,
+            y = -2618.9885,
+            z = -13.8154,
+            h = 359.5648
+        },
+        location = "armadillo",
+        label = "Armadillo"
     }
 }

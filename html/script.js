@@ -77,7 +77,6 @@ function setupLocations(locations, myHouses, isNew) {
         if (!isNew){
             $(parent).append('<div class="location" id="location" data-location="current" data-type="current" data-label="Last Location"><p><span id="current-location">Last Location</span></p></div>');
         }
-        
         $.each(locations, function(index, location) {
             $(parent).append('<div class="location" id="location" data-location="' + location.location + '" data-type="normal" data-label="' + location.label + '"><p><span id="' + location.location + '">' + location.label + '</span></p></div>')
         });
