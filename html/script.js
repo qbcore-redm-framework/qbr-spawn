@@ -61,10 +61,6 @@ $(document).on('click', '#submit-spawn', function(evt) {
             spawnloc: location,
             typeLoc: spawnType
         }));
-    } else {
-        $.post('https://qbr-spawn/chooseAppa', JSON.stringify({
-            appType: location,
-        }));
     }
 });
 
