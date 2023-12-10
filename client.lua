@@ -54,7 +54,6 @@ RegisterNUICallback('setCam', function(data)
             cam2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", PlayerData.position.x, PlayerData.position.y, PlayerData.position.z + camZPlus1, 300.00,0.00,0.00, 110.00, false, 0)
             PointCamAtCoord(cam2, PlayerData.position.x, PlayerData.position.y, PlayerData.position.z + pointCamCoords)
             SetCamActiveWithInterp(cam2, cam, cam1Time, true, true)
-            -- SetCamActiveWithInterp(camTo, camFrom, duration, easeLocation, easeRotation)
             if DoesCamExist(cam) then
                 DestroyCam(cam, true)
             end
@@ -81,7 +80,7 @@ RegisterNUICallback('setCam', function(data)
         SetCamActiveWithInterp(cam, cam2, cam2Time, true, true)
         SetEntityCoords(PlayerPedId(), campos.x, campos.y, campos.z)
     elseif type == "normal" then
-        local campos = QB.Spawns[location].coords
+        local campos = QB.FirstSpawns[location].coords
 
         cam2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", campos.x, campos.y, campos.z + camZPlus1, 300.00,0.00,0.00, 110.00, false, 0)
         PointCamAtCoord(cam2, campos.x, campos.y, campos.z + pointCamCoords)
@@ -143,15 +142,6 @@ RegisterNUICallback('spawnplayer', function(data)
         SetEntityCoords(PlayerPedId(), PlayerData.position.x, PlayerData.position.y, PlayerData.position.z)
         SetEntityHeading(PlayerPedId(), PlayerData.position.w)
         FreezeEntityPosition(PlayerPedId(), false)
-
-        -- if insideMeta.house ~= nil then
-        --     local houseId = insideMeta.house
-        --     TriggerEvent('qbr-houses:client:LastLocationHouse', houseId)
-        -- elseif insideMeta.apartment.apartmentType ~= nil or insideMeta.apartment.apartmentId ~= nil then
-        --     local apartmentType = insideMeta.apartment.apartmentType
-        --     local apartmentId = insideMeta.apartment.apartmentId
-        --     TriggerEvent('qbr-apartments:client:LastLocationHouse', apartmentType, apartmentId)
-        -- end
         TriggerServerEvent('QBCore:Server:OnPlayerLoaded')
         TriggerEvent('QBCore:Client:OnPlayerLoaded')
         FreezeEntityPosition(ped, false)
@@ -182,7 +172,7 @@ RegisterNUICallback('spawnplayer', function(data)
         Wait(500)
         DoScreenFadeIn(250)
     elseif type == "normal" then
-        local pos = QB.Spawns[location].coords
+        local pos = QB.FirstSpawns[location].coords
         SetDisplay(false)
         DoScreenFadeOut(500)
         Wait(2000)
@@ -208,7 +198,7 @@ RegisterNUICallback('spawnplayer', function(data)
     if newPlayer then
         TriggerEvent('qbr-clothing:client:newPlayer')
         newPlayer = false
-    end
+        end
 end)
 
 function SetDisplay(bool)
