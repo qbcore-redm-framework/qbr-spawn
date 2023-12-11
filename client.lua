@@ -172,7 +172,13 @@ RegisterNUICallback('spawnplayer', function(data)
         Wait(500)
         DoScreenFadeIn(250)
     elseif type == "normal" then
-        local pos = QB.FirstSpawns[location].coords
+        local pos = {}
+
+        if newPlayer then
+            pos = QB.FirstSpawns[location].coords
+        else
+            pos = QB.Spawns[location].coords
+        end
         SetDisplay(false)
         DoScreenFadeOut(500)
         Wait(2000)
